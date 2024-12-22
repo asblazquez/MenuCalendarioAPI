@@ -16,4 +16,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Services\Application.Services.csproj" />
+    <ProjectReference Include="..\Infraestructure.DAL\Infraestructure.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

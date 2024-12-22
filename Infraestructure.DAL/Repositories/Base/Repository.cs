@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Infraestructure.DAL.Context;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -12,7 +14,7 @@ namespace Infraestructure.DAL.Repositories.Base
         /// <summary>
         /// Contexto de la base de datos
         /// </summary>
-        protected readonly IEscuelaJudicialContext Context;
+        protected readonly BDContext Context;
 
         /// <summary>
         /// DbSet de la base de datos
@@ -23,7 +25,7 @@ namespace Infraestructure.DAL.Repositories.Base
         /// Ctor()
         /// </summary>
         /// <param name="dbContext">Contexto de datos de la aplicación</param>
-        public Repository(IEscuelaJudicialContext dbContext)
+        public Repository(BDContext dbContext)
         {
             Context = dbContext;
             Context.ChangeTracker.LazyLoadingEnabled = false;
@@ -401,5 +403,4 @@ namespace Infraestructure.DAL.Repositories.Base
 
         #endregion
     }
-}
 }
