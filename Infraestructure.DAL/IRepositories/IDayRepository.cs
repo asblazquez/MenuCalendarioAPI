@@ -19,5 +19,13 @@ namespace Infraestructure.DAL.IRepositories
         /// </summary>
         /// <returns></returns>
         List<ListDayDto> GetAllDays();
+
+        /// <summary>
+        /// Metodo que obtiene todos los dias con sus menus de un periodo
+        /// </summary>
+        /// <param name="startDate">Fecha Inicio</param>
+        /// <param name="endDate">Fecha Fin</param>
+        /// <returns></returns>
+        List<ListDayDto> GetDaysByPeriod(DateOnly startDate, DateOnly endDate);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Application.Services.IServices;
 using Application.Services.Services.Base;
 using Domain.Dtos.ListDto;
+using Domain.Searchs;
 using Infraestructure.DAL.UnitOfWork;
 using Mapster;
 using System;
@@ -24,6 +25,16 @@ namespace Application.Services.Services
         public List<ListDayDto> GetAllDays()
         {
             return _uow.Day.GetAllDays();
+        }
+
+        /// <summary>
+        /// <see cref="IDayService.GetDaysByPeriod"/>
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        public List<ListDayDto> GetDaysByPeriod(DaysByPeriodSerach search)
+        {
+            return _uow.Day.GetDaysByPeriod(search.StartDate, search.EndDate);
         }
     }
 }

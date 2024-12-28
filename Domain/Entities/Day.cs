@@ -7,6 +7,8 @@ public partial class Day
 {
     public int Id { get; set; }
 
+    public int IdUsuario { get; set; }
+
     public DateOnly Date { get; set; }
 
     public int? IdMeal { get; set; }

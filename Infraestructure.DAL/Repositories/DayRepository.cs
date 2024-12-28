@@ -30,5 +30,24 @@ namespace Infraestructure.DAL.Repositories
                     TitleDinner = x.Dinner.Title
                 }).ToList();
         }
+
+        /// <summary>
+        /// <see cref="IDayRepository.GetDaysByPeriod(DateOnly, DateOnly)"/>
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        public List<ListDayDto> GetDaysByPeriod(DateOnly startDate, DateOnly endDate)
+        {
+            return Context.Days
+                .Where(x => x.Date >= startDate && x.Date <= endDate && x.IdUsuario == 1)
+                .Select(x => new ListDayDto()
+                {
+                    Id = x.Id,
+                    Date = x.Date,
+                    TitleMeal = x.Meal.Title,
+                    TitleDinner = x.Dinner.Title
+                }).ToList();
+        }
     }
 }
