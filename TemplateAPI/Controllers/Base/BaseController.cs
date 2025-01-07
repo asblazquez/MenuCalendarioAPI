@@ -4,7 +4,7 @@ namespace TemplateAPI.Controllers.Base
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseController : Controller
+    public class BaseController : ControllerBase
     {
     }
 }

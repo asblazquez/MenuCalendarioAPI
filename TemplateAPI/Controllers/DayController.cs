@@ -6,8 +6,8 @@ using TemplateAPI.Controllers.Base;
 
 namespace Presentation.API.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class DayController : BaseController
     {
         private IDayService _dayService;
@@ -24,17 +24,17 @@ namespace Presentation.API.Controllers
         /// Metodo que obtiene todos los dias con sus menus
         /// </summary>
         /// <returns></returns>
-        //[HttpGet(Name = "GetAllDays")]
-        //public IActionResult GetAllDays()
-        //{
-        //    return Ok(_dayService.GetAllDays());
-        //}
+        [HttpGet("GetAllDays")]
+        public IActionResult GetAllDays()
+        {
+            return Ok(_dayService.GetAllDays());
+        }
 
         /// <summary>
         /// Metodo que obtiene todos los dias con sus menus de un periodo
         /// </summary>
         /// <returns></returns>
-        [HttpGet(Name = "GetDaysByPeriod")]
+        [HttpGet("GetDaysByPeriod")]
         public IActionResult GetDaysByPeriod([FromQuery] DaysByPeriodSerach search)
         {
             return Ok(_dayService.GetDaysByPeriod(search));

@@ -25,7 +25,8 @@ namespace Infraestructure.DAL.IRepositories
         /// </summary>
         /// <param name="startDate">Fecha Inicio</param>
         /// <param name="endDate">Fecha Fin</param>
+        /// <param name="userId">UserId</param>
         /// <returns></returns>
-        List<ListDayDto> GetDaysByPeriod(DateOnly startDate, DateOnly endDate);
+        List<ListDayDto> GetDaysByPeriod(DateOnly startDate, DateOnly endDate, int userId);
     }
 }

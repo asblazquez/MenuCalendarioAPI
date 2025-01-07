@@ -34,7 +34,7 @@ namespace Application.Services.Services
         /// <returns></returns>
         public List<ListDayDto> GetDaysByPeriod(DaysByPeriodSerach search)
         {
-            return _uow.Day.GetDaysByPeriod(search.StartDate, search.EndDate);
+            return _uow.Day.GetDaysByPeriod(search.StartDate, search.EndDate, LoggedUserService.Instance.UserId);
         }
     }
 }

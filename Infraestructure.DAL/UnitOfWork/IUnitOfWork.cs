@@ -10,6 +10,8 @@ namespace Infraestructure.DAL.UnitOfWork
     public interface IUnitOfWork
     {
         IDayRepository Day { get; }
+        IUserRepository User { get; }
+        IMenuRepository Menu { get; }
 
         /// <summary>
         /// Guarda los cambios de todos los repositorios en BBDD

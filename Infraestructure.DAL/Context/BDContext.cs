@@ -68,6 +68,11 @@ namespace Infraestructure.DAL.Context
                 entity.Property(e => e.Title)
                     .HasMaxLength(150)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.User).WithMany(p => p.Menus)
+                .HasForeignKey(d => d.IdUser)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Menu_User");
             });
 
             modelBuilder.Entity<Step>(entity =>

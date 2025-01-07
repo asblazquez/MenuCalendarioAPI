@@ -4,6 +4,7 @@ using Infraestructure.DAL.Context;
 using Infraestructure.DAL.IRepositories;
 using Infraestructure.DAL.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
+using Utils;
 
 namespace Infraestructure.DAL.Repositories
 {
@@ -37,10 +38,10 @@ namespace Infraestructure.DAL.Repositories
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <returns></returns>
-        public List<ListDayDto> GetDaysByPeriod(DateOnly startDate, DateOnly endDate)
+        public List<ListDayDto> GetDaysByPeriod(DateOnly startDate, DateOnly endDate, int userId)
         {
             return Context.Days
-                .Where(x => x.Date >= startDate && x.Date <= endDate && x.IdUsuario == 1)
+                .Where(x => x.Date >= startDate && x.Date <= endDate && x.IdUsuario == userId)
                 .Select(x => new ListDayDto()
                 {
                     Id = x.Id,
