@@ -1,4 +1,5 @@
-﻿using Domain.Dtos.ListDto;
+﻿using Domain.Dtos;
+using Domain.Dtos.ListDto;
 using Domain.Searchs;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,17 @@ namespace Application.Services.IServices
         /// <param name="search">Search</param>
         /// <returns></returns>
         List<ListDayDto> GetDaysByPeriod(DaysByPeriodSerach search);
+
+        /// <summary>
+        /// Metodo que edita o agrega un dia
+        /// </summary>
+        /// <param name="dto">Dto</param>
+        void AddEditMealDay(DayDto dto);
+
+        /// <summary>
+        /// Metodo que edita o agrega un dia
+        /// </summary>
+        /// <param name="dto">Dto</param>
+        void AddEditDinnerDay(DayDto dto);
     }
 }

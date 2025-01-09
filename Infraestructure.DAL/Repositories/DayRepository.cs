@@ -50,5 +50,19 @@ namespace Infraestructure.DAL.Repositories
                     TitleDinner = x.Dinner.Title
                 }).ToList();
         }
+
+        /// <summary>
+        /// <see cref="IDayRepository.GetDayByDate(DateOnly, int)"/>
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public Day? GetDayByDate(DateOnly date, int userId)
+        {
+            return Context.Days
+                .Include(x => x.Meal)
+                .Include(x => x.Dinner)
+                .FirstOrDefault(x => x.Date == date && x.IdUsuario == userId);
+        }
     }
 }

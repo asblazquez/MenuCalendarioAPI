@@ -28,5 +28,13 @@ namespace Infraestructure.DAL.IRepositories
         /// <param name="userId">UserId</param>
         /// <returns></returns>
         List<ListDayDto> GetDaysByPeriod(DateOnly startDate, DateOnly endDate, int userId);
+
+        /// <summary>
+        /// Metodo que obtiene un dia por fecha
+        /// </summary>
+        /// <param name="date">dia</param>
+        /// <param name="userId">Id Usuario</param>
+        /// <returns></returns>
+        Day? GetDayByDate(DateOnly date, int userId);
     }
 }

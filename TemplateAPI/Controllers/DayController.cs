@@ -1,7 +1,10 @@
 ﻿using Application.Services.IServices;
+using Domain.Dtos;
 using Domain.Searchs;
+using Mapster;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.API.Models;
 using TemplateAPI.Controllers.Base;
 
 namespace Presentation.API.Controllers
@@ -38,6 +41,30 @@ namespace Presentation.API.Controllers
         public IActionResult GetDaysByPeriod([FromQuery] DaysByPeriodSerach search)
         {
             return Ok(_dayService.GetDaysByPeriod(search));
+        }
+
+        /// <summary>
+        /// Metodo que agrega o edita un dia
+        /// </summary>
+        /// <param name="model">Modelo</param>
+        /// <returns></returns>
+        [HttpPost("AddEditMealDay")]
+        public IActionResult AddEditMealDay(DayModel model)
+        {
+            _dayService.AddEditMealDay(model.Adapt<DayDto>());
+            return Ok($"Comida guardada para el dia {model.Date.ToShortDateString()}");
+        }
+
+        /// <summary>
+        /// Metodo que agrega o edita un dia
+        /// </summary>
+        /// <param name="model">Modelo</param>
+        /// <returns></returns>
+        [HttpPost("AddEditDinnerDay")]
+        public IActionResult AddEditDinnerDay(DayModel model)
+        {
+            _dayService.AddEditDinnerDay(model.Adapt<DayDto>());
+            return Ok($"Cena guardada para el dia {model.Date.ToShortDateString()}");
         }
     }
 }
