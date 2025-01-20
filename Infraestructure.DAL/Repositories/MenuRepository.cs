@@ -26,6 +26,7 @@ namespace Infraestructure.DAL.Repositories
         {
             return Context.Menus
                 .Where(x => x.IdUser == idUser)
+                .OrderBy(x => x.Title)
                 .Select(x => new SelectListItemDto
                 {
                     Value = x.Id,
