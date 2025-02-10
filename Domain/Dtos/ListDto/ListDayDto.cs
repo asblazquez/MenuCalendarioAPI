@@ -24,11 +24,11 @@ namespace Domain.Dtos.ListDto
         /// <summary>
         /// Meal
         /// </summary>
-        public string? TitleMeal { get; set; }
+        public SelectListItemDto? Meal { get; set; }
 
         /// <summary>
         /// Dinner
         /// </summary>
-        public string? TitleDinner { get; set; }
+        public SelectListItemDto? Dinner { get; set; }
     }
 }

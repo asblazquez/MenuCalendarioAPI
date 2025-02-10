@@ -27,8 +27,8 @@ namespace Infraestructure.DAL.Repositories
                 {
                     Id = x.Id,
                     Date = x.Date,
-                    TitleMeal = x.Meal.Title,
-                    TitleDinner = x.Dinner.Title
+                    Meal =  new() { Value = x.Meal.Id, Text = x.Meal.Title },
+                    Dinner = new() { Value = x.Dinner.Id, Text = x.Dinner.Title }
                 }).ToList();
         }
 
@@ -46,8 +46,8 @@ namespace Infraestructure.DAL.Repositories
                 {
                     Id = x.Id,
                     Date = x.Date,
-                    TitleMeal = x.Meal.Title,
-                    TitleDinner = x.Dinner.Title
+                    Meal = x.Meal.Id != null ? new () { Value = x.Meal.Id, Text = x.Meal.Title } : null,
+                    Dinner = x.Dinner.Id != null ? new () { Value = x.Dinner.Id, Text = x.Dinner.Title } : null
                 }).ToList();
         }
 
